@@ -1,0 +1,151 @@
+{
+  "schema_version": 2,
+  "case_id": "DS-002",
+  "timestamp": "2026-11-06T04:23:43Z",
+  "source": "playwright",
+  "capture_source": "playwright",
+  "page_url": "http://localhost:3002/",
+  "evidence": [
+    {
+      "id": "NET-001",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:23:40.555591Z",
+      "source": "network",
+      "url": "http://localhost:3002/",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "resource_type": "document"
+    },
+    {
+      "id": "NET-002",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:23:40.562317Z",
+      "source": "network",
+      "url": "http://localhost:3002/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "connection": "keep-alive",
+        "content-length": "443",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 06 Nov 2026 04:23:40 GMT",
+        "etag": "W/\"1bb-1a1a759c60c\"",
+        "keep-alive": "timeout=5",
+        "last-modified": "Wed, 04 Nov 2026 16:17:20 GMT",
+        "x-powered-by": "Express"
+      },
+      "resource_type": "document"
+    },
+    {
+      "id": "NET-003",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:23:40.567566Z",
+      "source": "network",
+      "url": "http://localhost:3002/style.css",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://localhost:3002/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "resource_type": "stylesheet"
+    },
+    {
+      "id": "NET-004",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:23:40.568610Z",
+      "source": "network",
+      "url": "http://localhost:3002/app.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://localhost:3002/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "resource_type": "script"
+    },
+    {
+      "id": "NET-005",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:23:40.574560Z",
+      "source": "network",
+      "url": "http://localhost:3002/style.css",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"243-1a1a759bc8d\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "content-length": "579",
+        "keep-alive": "timeout=5",
+        "date": "Fri, 06 Nov 2026 04:23:40 GMT",
+        "last-modified": "Wed, 04 Nov 2026 16:17:18 GMT",
+        "x-powered-by": "Express",
+        "content-type": "text/css; charset=UTF-8"
+      },
+      "resource_type": "stylesheet"
+    },
+    {
+      "id": "NET-006",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:23:40.574560Z",
+      "source": "network",
+      "url": "http://localhost:3002/app.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"262-1a1a759bc8d\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "content-length": "610",
+        "keep-alive": "timeout=5",
+        "date": "Fri, 06 Nov 2026 04:23:40 GMT",
+        "last-modified": "Wed, 04 Nov 2026 16:17:18 GMT",
+        "x-powered-by": "Express",
+        "content-type": "application/javascript; charset=UTF-8"
+      },
+      "resource_type": "script"
+    },
+    {
+      "id": "APP-001",
+      "type": "dom_observation",
+      "timestamp": "2026-11-06T04:23:42.612557Z",
+      "source": "application",
+      "selector": "html",
+      "observation": "phase=initial; page title: 'Loading — DEV-SQUAD Demo (stuck-spinner)'; readyState: complete"
+    },
+    {
+      "id": "APP-002",
+      "type": "app_observation",
+      "timestamp": "2026-11-06T04:23:42.621530Z",
+      "source": "application",
+      "selector": ".spinner",
+      "observation": "phase=initial; spinner visible: true"
+    }
+  ],
+  "capture_metadata": {
+    "collector": "capture/capture.py",
+    "collector_version": "0.3.0",
+    "headless": true,
+    "interaction_selector": null,
+    "click_wait_seconds": 2.0
+  },
+  "redaction_applied": true,
+  "warnings": [
+    "Insufficient evidence: no console errors, no actionable failed network responses, and no DOM anomalies observed. Cannot reach a confident root-cause conclusion without inventing one."
+  ]
+}

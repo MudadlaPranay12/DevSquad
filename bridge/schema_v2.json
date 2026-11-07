@@ -1,0 +1,166 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://devsquad.local/schema/evidence-bundle.v2.json",
+  "title": "DEV-SQUAD Evidence Bundle v2",
+  "description": "Sanitized browser evidence bundle with source-prefixed evidence IDs. v1 bundles remain valid against bridge/schema.json and are migrated on ingest.",
+  "type": "object",
+  "required": ["schema_version", "case_id", "timestamp", "capture_source", "page_url", "evidence"],
+  "properties": {
+    "schema_version": {
+      "const": 2,
+      "description": "Schema version. v2 adds source-prefixed IDs and application evidence."
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^DS-\\d{3}$",
+      "description": "Case identifier, e.g. DS-001"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC ISO-8601 timestamp when the bundle was generated"
+    },
+    "source": {
+      "type": "string",
+      "description": "Legacy capture source retained for v1 compatibility"
+    },
+    "capture_source": {
+      "type": "string",
+      "enum": ["playwright", "devtools-extension", "replay", "import", "switch", "manual"],
+      "description": "Tool that produced the bundle"
+    },
+    "page_url": {
+      "type": "string",
+      "description": "URL of the page under test (sensitive query values redacted)"
+    },
+    "incident_description": {
+      "type": "string",
+      "maxLength": 4000,
+      "description": "Developer-provided description of the incident. Untrusted data."
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "type"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(CON|NET|APP|PERF|SEC|REC|LH)-\\d{3}$",
+            "description": "Unique source-prefixed evidence identifier"
+          },
+          "legacy_id": {
+            "type": "string",
+            "pattern": "^E\\d{3}$",
+            "description": "Original v1 identifier, retained after migration"
+          },
+          "source": {
+            "type": "string",
+            "enum": ["console", "network", "application", "performance", "security", "recorder", "lighthouse"]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "console_error",
+              "console_warning",
+              "console_message",
+              "page_error",
+              "unhandled_rejection",
+              "runtime_error",
+              "network_request",
+              "network_response",
+              "network_failure",
+              "dom_observation",
+              "app_observation",
+              "cookie_metadata",
+              "storage_observation",
+              "performance_metric",
+              "security_observation",
+              "recorder_event",
+              "lighthouse_audit"
+            ]
+          },
+          "timestamp": {
+            "oneOf": [
+              {"type": "string", "format": "date-time"},
+              {"type": "null"}
+            ],
+            "description": "UTC ISO-8601 observation time, or null when unknown"
+          },
+          "timestamp_missing": {
+            "type": "boolean",
+            "description": "True when the source did not provide a timestamp"
+          },
+          "level": {"type": "string"},
+          "message": {"type": "string", "maxLength": 8000},
+          "location": {"type": "object"},
+          "url": {"type": "string", "maxLength": 4000},
+          "method": {"type": "string"},
+          "headers": {
+            "type": "object",
+            "additionalProperties": {"type": "string"}
+          },
+          "status": {"type": "integer", "minimum": 100, "maximum": 599},
+          "selector": {"type": "string", "maxLength": 1000},
+          "observation": {"type": "string", "maxLength": 8000},
+          "cookie_name": {"type": "string"},
+          "cookie_domain": {"type": "string"},
+          "cookie_secure": {"type": "boolean"},
+          "cookie_http_only": {"type": "boolean"},
+          "cookie_same_site": {"type": "string"},
+          "duration_ms": {"type": "number", "minimum": 0},
+          "request_id": {"type": "string"},
+          "resource_type": {"type": "string"},
+          "title": {"type": "string"},
+          "state": {"type": "string"},
+          "metadata": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "legacy_id_map": {
+      "type": "object",
+      "additionalProperties": {"type": "string"},
+      "description": "Stable v1 E### to v2 source-prefixed ID mapping"
+    },
+    "capture_metadata": {
+      "type": "object",
+      "description": "Safe capture metadata such as extension version and capture window"
+    },
+    "redaction_applied": {"type": "boolean"},
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "schema_version": 2,
+      "case_id": "DS-001",
+      "timestamp": "2026-11-06T10:00:00Z",
+      "capture_source": "playwright",
+      "page_url": "http://localhost:3001/",
+      "evidence": [
+        {
+          "id": "CON-001",
+          "legacy_id": "E007",
+          "source": "console",
+          "type": "console_error",
+          "timestamp": "2026-11-06T10:00:00.100Z",
+          "message": "Authentication initialization failed"
+        },
+        {
+          "id": "NET-001",
+          "source": "network",
+          "type": "network_response",
+          "timestamp": "2026-11-06T10:00:00.180Z",
+          "method": "GET",
+          "url": "http://localhost:3001/api/user",
+          "status": 401
+        }
+      ]
+    }
+  ]
+}

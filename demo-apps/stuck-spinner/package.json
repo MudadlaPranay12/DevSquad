@@ -1,0 +1,12 @@
+{
+  "name": "devsquad-demo-stuck-spinner",
+  "version": "1.0.0",
+  "description": "DEV-SQUAD demo app B: infinite loading spinner with no obvious error",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

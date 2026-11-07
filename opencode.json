@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "servers": {
+      "switch-docs": {
+        "type": "remote",
+        "url": "https://docs.switchagents.ai/mcp"
+      }
+    }
+  }
+}

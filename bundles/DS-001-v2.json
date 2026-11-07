@@ -1,0 +1,261 @@
+{
+  "schema_version": 2,
+  "case_id": "DS-001",
+  "timestamp": "2026-11-06T04:23:39Z",
+  "source": "playwright",
+  "capture_source": "playwright",
+  "page_url": "http://localhost:3001/",
+  "evidence": [
+    {
+      "id": "NET-001",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:23:35.003618Z",
+      "source": "network",
+      "url": "http://localhost:3001/",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      },
+      "resource_type": "document"
+    },
+    {
+      "id": "NET-002",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:23:35.009708Z",
+      "source": "network",
+      "url": "http://localhost:3001/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "connection": "keep-alive",
+        "content-length": "1016",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 06 Nov 2026 04:23:35 GMT",
+        "etag": "W/\"3f8-1a1a759c661\"",
+        "keep-alive": "timeout=5",
+        "last-modified": "Wed, 04 Nov 2026 16:17:20 GMT",
+        "x-powered-by": "Express"
+      },
+      "resource_type": "document"
+    },
+    {
+      "id": "NET-003",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:23:35.017442Z",
+      "source": "network",
+      "url": "http://localhost:3001/style.css",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://localhost:3001/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "resource_type": "stylesheet"
+    },
+    {
+      "id": "NET-004",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:23:35.018441Z",
+      "source": "network",
+      "url": "http://localhost:3001/app.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://localhost:3001/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "resource_type": "script"
+    },
+    {
+      "id": "NET-005",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:23:35.023608Z",
+      "source": "network",
+      "url": "http://localhost:3001/style.css",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"55c-1a1a759c4f9\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "content-length": "1372",
+        "keep-alive": "timeout=5",
+        "date": "Fri, 06 Nov 2026 04:23:35 GMT",
+        "last-modified": "Wed, 04 Nov 2026 16:17:20 GMT",
+        "x-powered-by": "Express",
+        "content-type": "text/css; charset=UTF-8"
+      },
+      "resource_type": "stylesheet"
+    },
+    {
+      "id": "NET-006",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:23:35.025613Z",
+      "source": "network",
+      "url": "http://localhost:3001/app.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"9e4-1a1a759c4f9\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "content-length": "2532",
+        "keep-alive": "timeout=5",
+        "date": "Fri, 06 Nov 2026 04:23:35 GMT",
+        "last-modified": "Wed, 04 Nov 2026 16:17:20 GMT",
+        "x-powered-by": "Express",
+        "content-type": "application/javascript; charset=UTF-8"
+      },
+      "resource_type": "script"
+    },
+    {
+      "id": "CON-001",
+      "type": "console_error",
+      "timestamp": "2026-11-06T04:23:35.027130Z",
+      "source": "console",
+      "level": "error",
+      "message": "Authentication initialization failed",
+      "location": {
+        "url": "http://localhost:3001/app.js",
+        "line": 23,
+        "column": 10,
+        "lineNumber": 23,
+        "columnNumber": 10
+      }
+    },
+    {
+      "id": "APP-001",
+      "type": "dom_observation",
+      "timestamp": "2026-11-06T04:23:37.068303Z",
+      "source": "application",
+      "selector": "html",
+      "observation": "phase=initial; page title: 'Login — DEV-SQUAD Demo (auth-failure)'; readyState: complete"
+    },
+    {
+      "id": "APP-002",
+      "type": "app_observation",
+      "timestamp": "2026-11-06T04:23:37.070751Z",
+      "source": "application",
+      "selector": "#loginBtn",
+      "observation": "phase=initial; button disabled: false; visible: true"
+    },
+    {
+      "id": "APP-003",
+      "type": "app_observation",
+      "timestamp": "2026-11-06T04:23:37.072834Z",
+      "source": "application",
+      "selector": "#loading",
+      "observation": "phase=initial; loading indicator visible: false; class: loading hidden"
+    },
+    {
+      "id": "NET-007",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:23:37.136344Z",
+      "source": "network",
+      "url": "http://localhost:3001/api/user",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://localhost:3001/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "resource_type": "fetch"
+    },
+    {
+      "id": "NET-008",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:23:37.138143Z",
+      "source": "network",
+      "url": "http://localhost:3001/api/user",
+      "method": "GET",
+      "status": 401,
+      "headers": {
+        "content-length": "35",
+        "keep-alive": "timeout=5",
+        "etag": "W/\"23-pT7t8XK0pjtVhi05PqzqkaOugBk\"",
+        "date": "Fri, 06 Nov 2026 04:23:37 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "x-powered-by": "Express",
+        "connection": "keep-alive"
+      },
+      "resource_type": "fetch"
+    },
+    {
+      "id": "CON-002",
+      "type": "console_error",
+      "timestamp": "2026-11-06T04:23:37.138143Z",
+      "source": "console",
+      "level": "error",
+      "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "location": {
+        "url": "http://localhost:3001/api/user",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "id": "CON-003",
+      "type": "console_error",
+      "timestamp": "2026-11-06T04:23:37.139597Z",
+      "source": "console",
+      "level": "error",
+      "message": "Login request failed: HTTP 401",
+      "location": {
+        "url": "http://localhost:3001/app.js",
+        "line": 54,
+        "column": 14,
+        "lineNumber": 54,
+        "columnNumber": 14
+      }
+    },
+    {
+      "id": "APP-004",
+      "type": "dom_observation",
+      "timestamp": "2026-11-06T04:23:39.165063Z",
+      "source": "application",
+      "selector": "html",
+      "observation": "phase=after_interaction; page title: 'Login — DEV-SQUAD Demo (auth-failure)'; readyState: complete"
+    },
+    {
+      "id": "APP-005",
+      "type": "app_observation",
+      "timestamp": "2026-11-06T04:23:39.171614Z",
+      "source": "application",
+      "selector": "#loginBtn",
+      "observation": "phase=after_interaction; button disabled: true; visible: true"
+    },
+    {
+      "id": "APP-006",
+      "type": "app_observation",
+      "timestamp": "2026-11-06T04:23:39.175710Z",
+      "source": "application",
+      "selector": "#loading",
+      "observation": "phase=after_interaction; loading indicator visible: true; class: loading"
+    }
+  ],
+  "capture_metadata": {
+    "collector": "capture/capture.py",
+    "collector_version": "0.3.0",
+    "headless": true,
+    "interaction_selector": "#loginBtn",
+    "click_wait_seconds": 2.0
+  },
+  "redaction_applied": true,
+  "warnings": []
+}

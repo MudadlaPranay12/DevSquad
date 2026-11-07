@@ -1,0 +1,147 @@
+{
+  "case_id": "DS-001",
+  "timestamp": "2026-11-06T04:21:42Z",
+  "source": "playwright",
+  "page_url": "http://localhost:3001/",
+  "evidence": [
+    {
+      "id": "E001",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:21:39Z",
+      "url": "http://localhost:3001/",
+      "method": "GET",
+      "headers": {
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\""
+      }
+    },
+    {
+      "id": "E002",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:21:39Z",
+      "url": "http://localhost:3001/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "cache-control": "public, max-age=0",
+        "connection": "keep-alive",
+        "content-length": "1016",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 06 Nov 2026 04:21:39 GMT",
+        "etag": "W/\"3f8-1a1a759c661\"",
+        "keep-alive": "timeout=5",
+        "last-modified": "Wed, 04 Nov 2026 16:17:20 GMT",
+        "x-powered-by": "Express"
+      }
+    },
+    {
+      "id": "E003",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:21:39Z",
+      "url": "http://localhost:3001/style.css",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://localhost:3001/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "id": "E004",
+      "type": "network_request",
+      "timestamp": "2026-11-06T04:21:39Z",
+      "url": "http://localhost:3001/app.js",
+      "method": "GET",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://localhost:3001/",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"HeadlessChrome\";v=\"156\"",
+        "sec-ch-ua-mobile": "?0"
+      }
+    },
+    {
+      "id": "E005",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:21:40Z",
+      "url": "http://localhost:3001/app.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"9e4-1a1a759c4f9\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "content-length": "2532",
+        "keep-alive": "timeout=5",
+        "date": "Fri, 06 Nov 2026 04:21:40 GMT",
+        "last-modified": "Wed, 04 Nov 2026 16:17:20 GMT",
+        "x-powered-by": "Express",
+        "content-type": "application/javascript; charset=UTF-8"
+      }
+    },
+    {
+      "id": "E006",
+      "type": "network_response",
+      "timestamp": "2026-11-06T04:21:40Z",
+      "url": "http://localhost:3001/style.css",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "cache-control": "public, max-age=0",
+        "etag": "W/\"55c-1a1a759c4f9\"",
+        "connection": "keep-alive",
+        "accept-ranges": "bytes",
+        "content-length": "1372",
+        "keep-alive": "timeout=5",
+        "date": "Fri, 06 Nov 2026 04:21:40 GMT",
+        "last-modified": "Wed, 04 Nov 2026 16:17:20 GMT",
+        "x-powered-by": "Express",
+        "content-type": "text/css; charset=UTF-8"
+      }
+    },
+    {
+      "id": "E007",
+      "type": "console_error",
+      "timestamp": "2026-11-06T04:21:40Z",
+      "level": "error",
+      "message": "Authentication initialization failed",
+      "location": {
+        "url": "http://localhost:3001/app.js",
+        "line": 23,
+        "column": 10,
+        "lineNumber": 23,
+        "columnNumber": 10
+      }
+    },
+    {
+      "id": "E008",
+      "type": "dom_observation",
+      "timestamp": "2026-11-06T04:21:42Z",
+      "selector": "html",
+      "observation": "phase=initial; page title: 'Login — DEV-SQUAD Demo (auth-failure)'; readyState: complete"
+    },
+    {
+      "id": "E009",
+      "type": "dom_observation",
+      "timestamp": "2026-11-06T04:21:42Z",
+      "selector": "#loginBtn",
+      "observation": "phase=initial; button disabled: false; visible: true"
+    },
+    {
+      "id": "E010",
+      "type": "dom_observation",
+      "timestamp": "2026-11-06T04:21:42Z",
+      "selector": "#loading",
+      "observation": "phase=initial; loading indicator visible: false; class: loading hidden"
+    }
+  ],
+  "redaction_applied": true,
+  "warnings": []
+}

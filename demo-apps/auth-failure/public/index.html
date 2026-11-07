@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — DEV-SQUAD Demo (auth-failure)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Sign In</h1>
+    <p>Enter your credentials to access the dashboard.</p>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="••••••••" />
+      </div>
+      <button type="submit" id="loginBtn">Sign in</button>
+      <div id="loading" class="loading hidden">Loading…</div>
+      <div id="error" class="error hidden"></div>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Runtime secrets and data
+bridge/.devsquad_token
+bridge/data/
+bridge/data/switch_agent.json
+
+# Node / extension build output
+node_modules/
+extension/node_modules/
+extension/dist/
+
+# Logs and local output
+*.log
+output.txt
+full_test_output.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

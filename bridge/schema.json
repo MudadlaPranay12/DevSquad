@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://devsquad.local/schema/evidence-bundle.v1.json",
+  "title": "DEV-SQUAD Evidence Bundle",
+  "description": "Sanitized browser evidence bundle produced by the Playwright evidence collector and processed by the Python bridge. Every evidence item carries a unique ID (E001, E002, ...) so that Switch agents can reference it in their findings.",
+  "type": "object",
+  "required": ["case_id", "timestamp", "source", "page_url", "evidence"],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^DS-\\d{3}$",
+      "description": "Case identifier, e.g. DS-001"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC ISO-8601 timestamp when the bundle was generated"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["playwright"],
+      "description": "Tool that produced the bundle"
+    },
+    "page_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the page under test"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "timestamp"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^E\\d{3}$",
+            "description": "Unique evidence identifier, e.g. E001"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "console_error",
+              "page_error",
+              "network_request",
+              "network_response",
+              "dom_observation",
+              "cookie_metadata"
+            ],
+            "description": "Category of evidence"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "UTC ISO-8601 timestamp when the evidence was observed"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable description (for console_error, page_error)"
+          },
+          "level": {
+            "type": "string",
+            "description": "Console level: error, warning, info, etc. (for console_error)"
+          },
+          "location": {
+            "type": "object",
+            "description": "Source location of the error (for console_error, page_error)"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Request URL (for network_request, network_response)"
+          },
+          "method": {
+            "type": "string",
+            "description": "HTTP method (for network_request)"
+          },
+          "headers": {
+            "type": "object",
+            "description": "HTTP headers with sensitive headers redacted (for network_request, network_response)"
+          },
+          "status": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 599,
+            "description": "HTTP status code (for network_response)"
+          },
+          "selector": {
+            "type": "string",
+            "description": "CSS selector observed (for dom_observation)"
+          },
+          "observation": {
+            "type": "string",
+            "description": "Observed DOM state description (for dom_observation)"
+          },
+          "cookie_name": {
+            "type": "string",
+            "description": "Cookie name only — never the value (for cookie_metadata)"
+          },
+          "cookie_domain": {
+            "type": "string",
+            "description": "Cookie domain only (for cookie_metadata)"
+          },
+          "cookie_secure": {
+            "type": "boolean",
+            "description": "Secure flag (for cookie_metadata)"
+          },
+          "cookie_http_only": {
+            "type": "boolean",
+            "description": "HttpOnly flag (for cookie_metadata)"
+          },
+          "cookie_same_site": {
+            "type": "string",
+            "description": "SameSite attribute (for cookie_metadata)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "List of evidence items. Each item has a unique id and references observable browser data only."
+    },
+    "redaction_applied": {
+      "type": "boolean",
+      "description": "True when redaction has been applied by the collector or bridge"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Non-fatal warnings raised during collection (e.g. insufficient evidence)"
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "case_id": "DS-001",
+      "timestamp": "2026-11-04T10:00:00Z",
+      "source": "playwright",
+      "page_url": "http://localhost:3001/",
+      "evidence": [
+        {
+          "id": "E001",
+          "type": "console_error",
+          "timestamp": "2026-11-04T10:00:01Z",
+          "message": "Authentication initialization failed"
+        },
+        {
+          "id": "E002",
+          "type": "network_response",
+          "timestamp": "2026-11-04T10:00:02Z",
+          "url": "http://localhost:3001/api/user",
+          "method": "GET",
+          "status": 401
+        },
+        {
+          "id": "E003",
+          "type": "dom_observation",
+          "timestamp": "2026-11-04T10:00:03Z",
+          "selector": "#loginBtn",
+          "observation": "button disabled, loading state active"
+        },
+        {
+          "id": "E004",
+          "type": "cookie_metadata",
+          "timestamp": "2026-11-04T10:00:04Z",
+          "cookie_name": "session",
+          "cookie_domain": "localhost",
+          "cookie_secure": false,
+          "cookie_http_only": true,
+          "cookie_same_site": "Lax"
+        }
+      ],
+      "redaction_applied": true,
+      "warnings": []
+    }
+  ]
+}

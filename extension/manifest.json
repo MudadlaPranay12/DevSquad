@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "DEV-SQUAD Evidence Capture",
+  "description": "Chrome DevTools panel for capturing and reviewing browser incident evidence in DEV-SQUAD",
+  "version": "0.3.0",
+  "action": {
+    "default_popup": "dist/index.html",
+    "default_title": "DEV-SQUAD Evidence Capture"
+  },
+  "devtools_page": "devtools.html",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}

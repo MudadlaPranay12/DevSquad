@@ -1,0 +1,88 @@
+/* DEV-SQUAD Demo App A: auth-failure — styles */
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  width: 360px;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+p {
+  margin: 0 0 1.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 0.65rem;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.loading {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #2563eb;
+}
+
+.error {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #dc2626;
+  background: #fef2f2;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none;
+}
